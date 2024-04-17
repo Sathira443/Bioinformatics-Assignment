@@ -1,0 +1,177 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "88c1c7f3",
+   "metadata": {
+    "_cell_guid": "b1076dfc-b9ad-4769-8c92-a6c4dae69d19",
+    "_uuid": "8f2839f25d086af736a60e9eeb907d3b93b6e0e5",
+    "execution": {
+     "iopub.execute_input": "2024-04-17T19:18:11.362991Z",
+     "iopub.status.busy": "2024-04-17T19:18:11.362477Z",
+     "iopub.status.idle": "2024-04-17T19:18:12.488195Z",
+     "shell.execute_reply": "2024-04-17T19:18:12.486716Z"
+    },
+    "papermill": {
+     "duration": 1.133838,
+     "end_time": "2024-04-17T19:18:12.491012",
+     "exception": false,
+     "start_time": "2024-04-17T19:18:11.357174",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/kaggle/input/gene-expression/data_set_ALL_AML_independent.csv\n",
+      "/kaggle/input/gene-expression/data_set_ALL_AML_train.csv\n",
+      "/kaggle/input/gene-expression/actual.csv\n"
+     ]
+    }
+   ],
+   "source": [
+    "# This Python 3 environment comes with many helpful analytics libraries installed\n",
+    "# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python\n",
+    "# For example, here's several helpful packages to load\n",
+    "\n",
+    "import numpy as np # linear algebra\n",
+    "import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\n",
+    "\n",
+    "# Input data files are available in the read-only \"../input/\" directory\n",
+    "# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory\n",
+    "\n",
+    "import os\n",
+    "for dirname, _, filenames in os.walk('/kaggle/input'):\n",
+    "    for filename in filenames:\n",
+    "        print(os.path.join(dirname, filename))\n",
+    "\n",
+    "# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using \"Save & Run All\" \n",
+    "# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "780b0d2e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002399,
+     "end_time": "2024-04-17T19:18:12.496307",
+     "exception": false,
+     "start_time": "2024-04-17T19:18:12.493908",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "9745176f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-04-17T19:18:12.503370Z",
+     "iopub.status.busy": "2024-04-17T19:18:12.502786Z",
+     "iopub.status.idle": "2024-04-17T19:18:15.676514Z",
+     "shell.execute_reply": "2024-04-17T19:18:15.675105Z"
+    },
+    "papermill": {
+     "duration": 3.180798,
+     "end_time": "2024-04-17T19:18:15.679612",
+     "exception": false,
+     "start_time": "2024-04-17T19:18:12.498814",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "from nltk.corpus import stopwords\n",
+    "from nltk.stem.porter import PorterStemmer\n",
+    "import re\n",
+    "import nltk\n",
+    "from sklearn.feature_extraction.text import CountVectorizer\n",
+    "import matplotlib.pyplot as plt\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "import seaborn as sns\n",
+    "from sklearn.feature_extraction.text import TfidfVectorizer\n",
+    "from sklearn.neighbors import KNeighborsClassifier\n",
+    "from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier\n",
+    "from sklearn.naive_bayes import MultinomialNB\n",
+    "from sklearn.svm import SVC"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "838b6a96",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002454,
+     "end_time": "2024-04-17T19:18:15.684870",
+     "exception": false,
+     "start_time": "2024-04-17T19:18:15.682416",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [
+    {
+     "datasetId": 1868,
+     "sourceId": 3249,
+     "sourceType": "datasetVersion"
+    }
+   ],
+   "dockerImageVersionId": 30684,
+   "isGpuEnabled": false,
+   "isInternetEnabled": false,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.13"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 8.37782,
+   "end_time": "2024-04-17T19:18:16.409696",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2024-04-17T19:18:08.031876",
+   "version": "2.5.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
